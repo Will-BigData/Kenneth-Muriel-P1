@@ -106,7 +106,7 @@ def create_order(user_id):
                 cursor.execute('UPDATE gordys_novelties SET quantity = quantity - %s WHERE id = %s', (quantity, product_id))
                 connection.commit()
                 logging.info(f"Order created for user ID {user_id}: Product ID {product_id}, Quantity {quantity}.")
-                print("Order created!")
+                print("Order created! We will send you an invoice soon.")
             else:
                 print("Cannot create order. Product is not available in sufficient quantity.")
         else:
