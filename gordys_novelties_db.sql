@@ -48,6 +48,4 @@ INSERT INTO gordys_novelties (item, price, wholesaler, quantity, category) VALUE
 ('Judas Priest T-Shirt', 30.00, 'unknown', 2, 'board game'),
 ('Ads ICON blind box', 10.00, 'Funko', 8, 'figure');
 
-INSERT INTO users (username, password, role) VALUES ('Kenny', 'Password1', 'admin');
-
 ALTER TABLE orders ADD COLUMN status ENUM('pending', 'complete') DEFAULT 'pending';
