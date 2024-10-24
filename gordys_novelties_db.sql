@@ -1,3 +1,5 @@
+-- DROP DATABASE IF EXISTS gordys_novelties_db;
+-- Just to reset everything to starting values
 CREATE DATABASE gordys_novelties_db;
 
 USE gordys_novelties_db;
@@ -10,9 +12,9 @@ CREATE TABLE users (
 );
 
 CREATE TABLE gordys_novelties (
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     item TEXT,
-    price INT,
+    price DECIMAL(10, 2),
     wholesaler TEXT,
     quantity INT,
     category TEXT
@@ -29,19 +31,23 @@ CREATE TABLE orders (
 );
 
 -- Insert initial data into gordys_novelties
-INSERT INTO gordys_novelties VALUES 
-(1, 'Settlers of Catan', 50, 'Mayfair Games', 3, 'board game'),
-(2, 'Dragon Ball Super Monopoly', 40, 'USAopoly', 2, 'board game'),
-(3, 'Stinky Pig', 10, 'Unknown', 4, 'dice game'),
-(4, 'Splendor', 50, 'Space Cowboys', 5, 'card game'),
-(5, 'Kami POP Figure', 30, 'Funko', 5, 'figure'),
-(6, 'DC Comics Harley Quinn New 52 Bishoujo', 70, 'Kotobukiya', 7, 'figure'),
-(7, 'King of Tokyo', 30, 'IELLO', 2, 'board game'),
-(8, 'GBA Link Cable', 5, 'Hyperkin', 1, 'video game accessory'),
-(9, 'Cat Headphones', 20, 'unknown', 2, 'audio equipment'),
-(10, 'Zebra Mini Bluetooth Speaker', 40, 'unknown', 3, 'audio equipment'),
-(11, 'Retron 3', 50, 'Hyperkin', 2, 'video game console'),
-(12, 'Supaboy', 50, 'Hyperkin', 3, 'video game console'),
-(13, 'Breaking Bad Monopoly', 40, 'USAopoly', 2, 'board game'),
-(14, 'Judas Priest T-Shirt', 30, 'unknown', 2, 'board game'),
-(15, 'Ads ICON blind box', 10, 'Funko', 8, 'figure');
+INSERT INTO gordys_novelties (item, price, wholesaler, quantity, category) VALUES 
+('Settlers of Catan', 50.00, 'Mayfair Games', 3, 'board game'),
+('Dragon Ball Super Monopoly', 40.00, 'USAopoly', 2, 'board game'),
+('Stinky Pig', 10.00, 'Unknown', 4, 'dice game'),
+('Splendor', 50.00, 'Space Cowboys', 5, 'card game'),
+('Kami POP Figure', 30.00, 'Funko', 5, 'figure'),
+('DC Comics Harley Quinn New 52 Bishoujo', 70.00, 'Kotobukiya', 7, 'figure'),
+('King of Tokyo', 30.00, 'IELLO', 2, 'board game'),
+('GBA Link Cable', 5.00, 'Hyperkin', 1, 'video game accessory'),
+('Cat Headphones', 20.00, 'unknown', 2, 'audio equipment'),
+('Zebra Mini Bluetooth Speaker', 40.00, 'unknown', 3, 'audio equipment'),
+('Retron 3', 50.00, 'Hyperkin', 2, 'video game console'),
+('Supaboy', 50.00, 'Hyperkin', 3, 'video game console'),
+('Breaking Bad Monopoly', 40.00, 'USAopoly', 2, 'board game'),
+('Judas Priest T-Shirt', 30.00, 'unknown', 2, 'board game'),
+('Ads ICON blind box', 10.00, 'Funko', 8, 'figure');
+
+INSERT INTO users (username, password, role) VALUES ('Kenny', 'Password1', 'admin');
+
+ALTER TABLE orders ADD COLUMN status ENUM('pending', 'complete') DEFAULT 'pending';
