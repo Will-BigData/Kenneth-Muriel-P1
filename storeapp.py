@@ -8,6 +8,7 @@ logging.basicConfig(filename='store.log', level=logging.INFO, format='%(asctime)
 # Database connection function
 def get_db_connection():
     try:
+        # Set the host, mysql user, mysql password to your machine's settings. Make sure to use the .sql file to create and populate the database before running - possibly in Workbench
         connection = mysql.connector.connect(
             host='localhost',
             user='root',
